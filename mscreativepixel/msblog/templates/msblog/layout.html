@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="This is My First Django Blog App. By MsCreativePixel">
+    <title>Django - MsCreativePixel</title>
+    <!--Import Google Icon Font-->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="{% static 'style/msapp.css' %}" media="screen,projection">
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <section><!-- class="container"-->
+                    <a href="#!" class="brand-logo">
+                        <img src="{% static 'img/mscreativepixel_logo.png' %}" alt="MsCreativePixel.Com"/>
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {% for navitem in navitems %}
+                            <li class="{% if navitem.url in request.path %} active {% endif %}"><a href="{{navitem.url}}">{{navitem.title}}</a></li>
+                        {% endfor %}
+                        <li class="contactus"><a class="waves-effect waves-light btn">Contact Us</a></li>
+                    </ul>
+                </section>
+            </div>
+        </nav>
+    </header>
+
+    {% if homepage == True %} 
+    <section class="banner">
+       {% include 'msblog/banner.html' %} 
+    </section>
+    {% endif %}
+
+    <section class="container">
+
+        {% block content %} {% endblock %}
+
+    </section>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Upgrading Your eCommerce Platform</h5>
+                    <div class="grey-text text-lighten-4">
+                        <p>70% of retail technology budgets are spent patching and maintaining legacy eCommerce code.</p>
+                        <p>Download our whitepaper and uncover the pros and cons of upgrading, migrating, or replacing your eCommerce platform.</p>
+                    </div>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">You will be redirected to the download after filling out this form.</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © MsCreativePixel.io, 2018. All Rights Reserved. Privacy Policy
+                <a class="grey-text text-lighten-4 right" href="#!">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

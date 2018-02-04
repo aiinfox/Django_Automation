@@ -1,0 +1,33 @@
+nav { background-color: #fff; }
+nav ul a { color: #333; padding: 0 25px; } 
+nav ul li:not(.contactus).active, nav ul li:not(.contactus):hover { background-color: #ee6e73; }
+nav ul li:not(.contactus).active a, nav ul li:not(.contactus):hover a { color: #fff; }
+nav ul a:hover { background-color: transparent }
+.btn {
+    box-shadow: 0 7px 0 0 #a11517;
+    background: #e5373a;
+    border: 0;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: .1rem;
+    line-height: 1;
+    min-height: 38px;
+    padding: 1rem 2rem;
+    height: auto;
+    border-radius: 4px;
+}
+.btn.active, .btn:active, .btn:focus, .btn:hover {
+    box-shadow: 0 8px 0 0 #a11517;
+    background: #e5373a;
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+}
+nav ul li .btn {
+    padding: .7rem 1.2rem;
+    margin-top: -6px;
+}
+
+.banner { background:  url('../img/banner_bg.jpg') no-repeat center top; background-size: cover; background-position: 50%; margin-top: -32px; height: calc(100vh - 32px); display: flex; align-items: center; }
+.banner .head { border-bottom: 2px solid #fff; display: inline-block; font-size: 1.2rem; font-weight: bold; padding: 5px 10px; }
+.banner .subhead { font-size: 75px;}
+.banner .card { margin-top: -10%; }
