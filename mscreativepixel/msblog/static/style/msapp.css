@@ -25,6 +25,7 @@ nav ul a:hover { background-color: transparent }
 nav ul li .btn {
     padding: .7rem 1.2rem;
     margin-top: -6px;
+    line-height: 1.3;
 }
 
 .banner { background:  url('../img/banner_bg.jpg') no-repeat center top; background-size: cover; background-position: 50%; margin-top: -32px; height: calc(100vh - 32px); display: flex; align-items: center; }
