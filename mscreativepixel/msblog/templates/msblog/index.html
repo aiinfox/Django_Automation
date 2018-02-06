@@ -1,5 +1,75 @@
-{% extends 'msblog/layout.html' %}
 
+{% extends 'msblog/layout.html' %}
+{% load static %}
 {% block content %}
-<h2>Hello from Index</h2>
+  <div class="row">
+
+    {% for blog in blogs %}
+        <div class="col s12 m3">
+            <div class="card hoverable">
+                <div class="card-image">
+                    <img src="{% static 'img/avatar_1.jpg' %}">
+                    <span class="card-title">{{blog.title}}</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>{{blog.description}}</p>
+                </div>
+                <span>{{blog.created_at}}</span>
+            </div>
+        </div>
+    {% endfor %}
+<!-- 
+
+
+    <div class="col s12 m3">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="{% static 'img/avatar_1.jpg' %}">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12 m3">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="{% static 'img/avatar_2.jpg' %}">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m3">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="{% static 'img/avatar_1.jpg' %}">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m3">
+      <div class="card hoverable">
+        <div class="card-image">
+          <img src="{% static 'img/avatar_2.jpg' %}">
+          <span class="card-title">Card Title</span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
 {% endblock %}

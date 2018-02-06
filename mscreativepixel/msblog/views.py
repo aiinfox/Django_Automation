@@ -2,12 +2,20 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import HeaderNavs
+from .models import Blogs
 from django import template
 
 register = template.Library()  
 
 def index(request):
-    return render(request, 'msblog/index.html', { 'homepage' : True })
+
+    blogs = Blogs.objects.all()
+    context = {
+        'homepage'  : True,
+        'blogs'     : blogs
+    }
+
+    return render(request, 'msblog/index.html', context)
 
 def about(request):
     return render(request, 'msblog/about.html')

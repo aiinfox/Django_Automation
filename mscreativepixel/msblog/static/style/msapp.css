@@ -1,3 +1,5 @@
+@import url('./../materialize/css/material_icons.css');
+
 nav { background-color: #fff; }
 nav ul a { color: #333; padding: 0 25px; } 
 nav ul li:not(.contactus).active, nav ul li:not(.contactus):hover { background-color: #ee6e73; }
