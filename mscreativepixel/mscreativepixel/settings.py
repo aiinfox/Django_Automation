@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'mscreativepixel.wsgi.application'
  #}
 
 
- DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'msdjango',
