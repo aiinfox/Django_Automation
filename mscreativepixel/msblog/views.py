@@ -3,10 +3,8 @@ from django.http import HttpResponse
 
 from .models import HeaderNavs
 from .models import Blogs
-from django import template
 
-register = template.Library()  
-
+#Home Page
 def index(request):
 
     blogs = Blogs.objects.all()
@@ -17,15 +15,37 @@ def index(request):
 
     return render(request, 'msblog/index.html', context)
 
+#About
 def about(request):
     return render(request, 'msblog/about.html')
 
+#Services
 def services(request):
     return render(request, 'msblog/service.html')
 
+#Work
 def work(request):
     return render(request, 'msblog/work.html')
 
+#Blog
 def blog(request):
-    return render(request, 'msblog/blog.html')
+
+    blogs = Blogs.objects.all()
+    context = {
+        'blogs' : blogs
+    }
+
+    return render(request, 'msblog/blog.html', context)
+
+#Blog Detail
+def blogdetail(request, slug):
+
+    post  = Blogs.objects.get(slug=slug)
+    blogs = Blogs.objects.all()
+    context = {
+        'post'  : post,
+        'blogs' : blogs
+    }
+
+    return render(request, 'msblog/blog-detail.html', context)
 

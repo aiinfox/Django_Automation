@@ -1,75 +1,122 @@
+ {% extends 'msblog/layout.html' %} {% load static %} {% block content %}
+<div class="specializing">
 
-{% extends 'msblog/layout.html' %}
-{% load static %}
-{% block content %}
-  <div class="row">
+    <section class="container">
 
-    {% for blog in blogs %}
-        <div class="col s12 m3">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="{% static 'img/avatar_1.jpg' %}">
-                    <span class="card-title">{{blog.title}}</span>
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                </div>
-                <div class="card-content">
-                    <p>{{blog.description}}</p>
-                </div>
-                <span>{{blog.created_at}}</span>
+        <h2 class="mt-3 pt-3">We are North America’s largest front-end development firm, specializing in React and Angular.</h2>
+        <p class="my-3 py-3">How can we help?</p>
+        <div class="row">
+            <div class="col s12 m3">
+                <a href="#" class="card center-align hoverable">
+                    <div class="card-content">
+                        <i class="material-icons large red-text text-darken-1">group</i>
+                        <span class="card-title">Team Work</span>
+                    </div>
+                    <div class="card-action py-1">
+                        <i class="material-icons small">arrow_forward</i>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m3">
+                <a href="#" class="card center-align hoverable">
+                    <div class="card-content">
+                        <i class="material-icons large red-text text-darken-1">touch_app</i>
+                        <span class="card-title">Build My App</span>
+                    </div>
+                    <div class="card-action py-1">
+                        <i class="material-icons small">arrow_forward</i>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m3">
+                <a href="#" class="card center-align hoverable">
+                    <div class="card-content">
+                        <i class="material-icons large red-text text-darken-1">headset_mic</i>
+                        <span class="card-title">Training</span>
+                    </div>
+                    <div class="card-action py-1">
+                        <i class="material-icons small">arrow_forward</i>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m3">
+                <a href="#" class="card center-align hoverable">
+                    <div class="card-content">
+                        <i class="material-icons large red-text text-darken-1">web</i>
+                        <span class="card-title">Web Apps</span>
+                    </div>
+                    <div class="card-action py-1">
+                        <i class="material-icons small">arrow_forward</i>
+                    </div>
+                </a>
             </div>
         </div>
-    {% endfor %}
-<!-- 
 
+        <h2 class="mt-3 pt-3">Our Services</h2>
+        <p class="my-3 py-3">By developing more than 100 JavaScript projects in the last four years, we have unparalleled experience in Angular,
+            React and Node.</p>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card transparent no-shadow no-border">
+                    <div class="card-content p-0">
+                        <div class="row">
+                            <div class="col s2"><i class="material-icons large red-text text-darken-1">web</i></div>
+                            <div class="col s10">
+                                <span class="card-title">Build your modern web app</span>
+                                <p>Create your best product yet using methods that are revolutionizing the industry.</p>
+                                <div class="card-action no-border pl-0">
+                                    <a href="#" class="light-blue-text text-accent-4 a-hvr-undrl">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card transparent no-shadow no-border">
+                    <div class="card-content p-0">
+                        <div class="row">
+                            <div class="col s2"><i class="material-icons large red-text text-darken-1">touch_app</i></div>
+                            <div class="col s10">
+                                <span class="card-title">Build your cross-platform mobile app</span>
+                                <p>Make your most ambitious next-generation software projects possible with our help.</p>
+                                <div class="card-action no-border pl-0">
+                                    <a href="#" class="light-blue-text text-accent-4 a-hvr-undrl">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-    <div class="col s12 m3">
-      <div class="card hoverable">
-        <div class="card-image">
-          <img src="{% static 'img/avatar_1.jpg' %}">
-          <span class="card-title">Card Title</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+<div class="purplesqr pos-rel"></div>
+<section class="bg-purple py-3 text-white">
+    <section class="container pb-3 mb-3">
+        <div class="row">
+            <div class="col s12 pb-3 mb-3">
+                <h3>Latest Blog Posts</h3>
+            </div>
+            {% for blog in blogs %} {% if forloop.counter <= 4 %} 
+            <div class="col s12 m3">
+                <a href="/blog" class="card hoverable">
+                    <div class="card-image">
+                        <img src="{{blog.avatar.url}}" alt="">
+                        <span class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></span>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{blog.title}}</span>
+                        <p>{{blog.short_description}}</p>
+                    </div>
+                    <div class="card-action">
+                        <span>{{blog.created_at}}</span>
+                    </div>
+                </a>
         </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+        {% endif %} {% endfor %}
         </div>
-      </div>
-    </div>
-
-    <div class="col s12 m3">
-      <div class="card hoverable">
-        <div class="card-image">
-          <img src="{% static 'img/avatar_2.jpg' %}">
-          <span class="card-title">Card Title</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m3">
-      <div class="card hoverable">
-        <div class="card-image">
-          <img src="{% static 'img/avatar_1.jpg' %}">
-          <span class="card-title">Card Title</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 m3">
-      <div class="card hoverable">
-        <div class="card-image">
-          <img src="{% static 'img/avatar_2.jpg' %}">
-          <span class="card-title">Card Title</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-        </div>
-      </div>
-    </div>
-  </div> -->
+    </section>
+</section>
 {% endblock %}
