@@ -90,14 +90,14 @@ WSGI_APPLICATION = 'mscreativepixel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'msdjango',
-        'USER' : 'root',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'msdb',
+        'USER': 'manjeet',
         'PASSWORD': '',
-        'HOST' : 'localhost',
-        'PORT': ''
+        'HOST': 'localhost',
+        'PORT': '',
     }
-} 
+}
 
 
 # Password validation
